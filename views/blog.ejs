@@ -1,0 +1,21 @@
+<%-include('partials/header'); -%>
+
+
+  <div class="container">
+<%  posts.forEach(function(post){ %>
+
+  <div class="container-fluid outer mt-5 ">
+    <h3><%=post.title%></h3>
+    <h5><%=post.date%></h5>
+    <p class="mb-0 home-description"><%=post.description%></p>
+    <img class="home-img" src="<%=post.imgURL%>" alt="">
+
+  </div>
+  <a href="/posts/<%=post._id%>" class="post-link mx-2 btn btn-primary">View Post</a>
+<hr>
+
+  <% }) %>
+</div>
+
+
+<%-include('partials/footer'); -%>

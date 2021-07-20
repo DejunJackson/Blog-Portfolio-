@@ -1,0 +1,109 @@
+<%-include('partials/header'); -%>
+
+<div class="container">
+
+
+  <form action="/" method="post" id='composeForm'>
+    <title>Compose</title>
+    <div class="form-group">
+      <label for="postTitle" class="form-label">Title</label>
+      <input required type="text" name="postTitle" id="title" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="imgURL" class="form-label">Image URL</label>
+      <input type="text" name="imgURL" id="imgURL" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="postDesciption" class="form-label">Description</label>
+      <textarea class="form-control" type='hidden' id='postDescription' name='postDescription' rows="4" maxlength='250'></textarea>
+    </div>
+    <div class="form-group">
+      <label for="postContent" class="form-label">Content</label>
+      <div required name="postContent" class="form-control" id="editor">
+      </div>
+    </div>
+    <input type="hidden" name="postContent"></input>
+    <a href="/" class="btn btn-danger m-4">Cancel</a>
+    <button type="submit" name="submit" class="btn btn-primary m-4" id="submit">Submit</button>
+
+
+
+  </form>
+  <!-- Include stylesheet -->
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  <!-- Include the Quill library -->
+  <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+  <!-- Initialize Quill editor -->
+  <script>
+    var options = [
+      ['bold', 'italic', 'underline', 'strike'], // toggled buttons
+      ['blockquote', 'code-block'],
+
+      [{
+        'header': 1
+      }, {
+        'header': 2
+      }], // custom button values
+      [{
+        'list': 'ordered'
+      }, {
+        'list': 'bullet'
+      }],
+      [{
+        'script': 'sub'
+      }, {
+        'script': 'super'
+      }], // superscript/subscript
+      [{
+        'indent': '-1'
+      }, {
+        'indent': '+1'
+      }], // outdent/indent
+      [{
+        'direction': 'rtl'
+      }], // text direction
+
+      [{
+        'size': ['small', false, 'large', 'huge']
+      }], // custom dropdown
+      [{
+        'header': [1, 2, 3, 4, 5, 6, false]
+      }],
+
+      [{
+        'color': []
+      }, {
+        'background': []
+      }], // dropdown with defaults from theme
+      [{
+        'font': []
+      }],
+      [{
+        'align': []
+      }],
+
+      ['clean'],
+      ['image', 'link'] // remove formatting button
+    ];
+    var quill = new Quill('#editor', {
+      theme: 'snow',
+      modules: {
+        toolbar: options
+      }
+    });
+    var form = document.getElementById("composeForm"); // get form by ID
+    form.onsubmit = function() { // onsubmit do this first
+      var con = document.querySelector('input[name=postContent]'); // set name input var
+      var contents = quill.getContents(); // populate name input with quill data
+      con.value = JSON.stringify(contents, null, 2)
+      return true; // submit form
+    }
+  </script>
+</div>
+
+
+
+
+
+<%-include('partials/footer'); -%>

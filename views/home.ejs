@@ -1,0 +1,39 @@
+<%-include('partials/header'); -%>
+<img class="main-img" src="images/pexels-andrea-piacquadio-3808080-min.jpg" alt="Bored Graduate Student">
+<h1 id="latest">Latest Posts</h1>
+<div class="container">
+  <div class="container-fluid outer mt-5 ">
+    <h3><%=posts[posts.length-1].title%></h3>
+    <h5><%=posts[posts.length-1].date%></h5>
+    <p class="mb-0 home-description"><%=posts[posts.length-1].description%></p>
+    <img class="home-img" src="<%=posts[posts.length-1].imgURL%>" alt="">
+
+  </div>
+  <a href="/posts/<%=posts[posts.length-1]._id%>" class="post-link mx-2 btn btn-primary">View Post</a>
+<hr>
+<div class="container-fluid outer mt-5">
+  <h3><%=posts[posts.length-2].title%></h3>
+  <h5><%=posts[posts.length-2].date%></h5>
+  <p class="mb-0 home-description"><%=posts[posts.length-2].description%></p>
+  <img class="home-img" src="<%=posts[posts.length-2].imgURL%>" alt="">
+</div>
+<a href="/posts/<%=posts[posts.length-2]._id%>" class="post-link mx-2 btn btn-primary">View Post</a>
+
+<hr>
+<div class="container-fluid outer mt-5">
+  <h3><%=posts[posts.length-3].title%></h3>
+  <h5><%=posts[posts.length-3].date%></h5>
+  <p class="mb-0 home-description"><%=posts[posts.length-3].description%></p>
+  <img class="home-img" src="<%=posts[posts.length-3].imgURL%>" alt="">
+</div>
+<a href="/posts/<%=posts[posts.length-3]._id%>" class="post-link mx-2 btn btn-primary">View Post</a>
+<hr>
+<div class="container-fluid outer mt-5">
+  <h3><%=posts[posts.length-4].title%></h3>
+  <h5><%=posts[posts.length-4].date%></h5>
+  <p class="mb-0 home-description"><%=posts[posts.length-4].description%></p>
+  <img class="home-img" src="<%=posts[posts.length-4].imgURL%>" alt="">
+</div>
+<a href="/posts/<%=posts[posts.length-4]._id%>" class="post-link mx-2 btn btn-primary">View Post</a>
+</div>
+<%-include('partials/footer'); -%>
