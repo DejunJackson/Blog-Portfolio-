@@ -1,6 +1,8 @@
 <%-include('partials/header'); -%>
 <img class="main-img" src="images/pexels-andrea-piacquadio-3808080-min.jpg" alt="Bored Graduate Student">
 <h1 id="latest">Latest Posts</h1>
+
+<!-- Only prints out the recent 4 posts in a database -->
 <div class="container">
   <div class="container-fluid outer mt-5 ">
     <h3><%=posts[posts.length-1].title%></h3>
@@ -34,6 +36,8 @@
   <p class="mb-0 home-description"><%=posts[posts.length-4].description%></p>
   <img class="home-img" src="<%=posts[posts.length-4].imgURL%>" alt="">
 </div>
-<a href="/posts/<%=posts[posts.length-4]._id%>" class="post-link mx-2 btn btn-primary">View Post</a>
+<a href="/posts/<%=posts[posts.length-4]._id%>" class="post-link mx-2 btn btn-primary mb-5">View Post</a>
+<hr>
 </div>
+
 <%-include('partials/footer'); -%>
